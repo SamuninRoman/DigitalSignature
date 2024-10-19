@@ -77,26 +77,33 @@ $(function() {
 <p class="startli">sudo apt-get update sudo apt-get install libssl-dev</p>
 </li>
 <li><p class="startli">Сборка:</p>
-<p class="startli">mkdir build &amp;&amp; cd build cmake .. make</p>
+<p class="startli">mkdir build &amp;&amp; cd build</p>
+<p class="startli">cmake ..</p>
+<p class="startli">make</p>
 </li>
 </ol>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Использование</h1>
-<p>./rsa_key_tool [-h] [-g &lt;key_file&gt;] [-s &lt;key_file&gt; &lt;file_to_sign&gt;] [-v &lt;key_file&gt; &lt;file_to_sign&gt; &lt;signature_file&gt;] [-l &lt;key_file&gt; &lt;key_type&gt;]</p>
-<p>Опции: -h, &ndash;help Показать это сообщение о помощи и выйти -g &lt;key_file&gt;, &ndash;generate &lt;key_file&gt; Сгенерировать новую пару ключей RSA и сохранить ее в &lt;key_file&gt;_pub.pem и &lt;key_file&gt;_priv.pem -s &lt;key_file&gt; &lt;file_to_sign&gt;, &ndash;sign &lt;key_file&gt; &lt;file_to_sign&gt; Подписать указанный файл с использованием закрытого ключа в &lt;key_file&gt;_priv.pem -v &lt;key_file&gt; &lt;file_to_sign&gt; &lt;signature_file&gt;, &ndash;verify &lt;key_file&gt; &lt;file_to_sign&gt; &lt;signature_file&gt; Проверить подпись указанного файла с использованием открытого ключа в &lt;key_file&gt;_pub.pem -l &lt;key_file&gt; &lt;key_type&gt;, &ndash;load &lt;key_file&gt; &lt;key_type&gt; Загрузить ключ из &lt;key_file&gt; с указанным типом ('pub' для открытого ключа, 'priv' для закрытого ключа)</p>
+<p>./DigitalSignature [-h] [-g &lt;key_file&gt;] [-s &lt;key_file&gt; &lt;file_to_sign&gt;] [-v &lt;key_file&gt; &lt;file_to_sign&gt; &lt;signature_file&gt;] [-l &lt;key_file&gt; &lt;key_type&gt;]</p>
+<p>Опции:</p>
+<p>-h, &ndash;help Показать это сообщение о помощи и выйти</p>
+<p>-g &lt;key_file&gt;, &ndash;generate &lt;key_file&gt; Сгенерировать новую пару ключей RSA и сохранить ее в &lt;key_file&gt;_pub.pem и &lt;key_file&gt;_priv.pem</p>
+<p>-s &lt;key_file&gt; &lt;file_to_sign&gt;, &ndash;sign &lt;key_file&gt; &lt;file_to_sign&gt; Подписать указанный файл с использованием закрытого ключа в &lt;key_file&gt;_priv.pem</p>
+<p>-v &lt;key_file&gt; &lt;file_to_sign&gt; &lt;signature_file&gt;, &ndash;verify &lt;key_file&gt; &lt;file_to_sign&gt; &lt;signature_file&gt; Проверить подпись указанного файла с использованием открытого ключа в &lt;key_file&gt;_pub.pem</p>
+<p>-l &lt;key_file&gt; &lt;key_type&gt;, &ndash;load &lt;key_file&gt; &lt;key_type&gt; Загрузить ключ из &lt;key_file&gt; с указанным типом ('pub' для открытого ключа, 'priv' для закрытого ключа)</p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Примеры</h1>
 <p>Сгенерировать новую пару ключей:</p>
-<p>./rsa_key_tool -g my_key</p>
+<p>./DigitalSignature -g my_key</p>
 <p>Это создаст два файла: my_key_pub.pem и my_key_priv.pem.</p>
 <p>Подписать файл:</p>
-<p>./rsa_key_tool -s my_key my_file.txt</p>
+<p>./DigitalSignature -s my_key my_file.txt</p>
 <p>Это подпишет my_file.txt с использованием закрытого ключа в my_key_priv.pem.</p>
 <p>Проверить подпись:</p>
-<p>./rsa_key_tool -v my_key my_file.txt my_file.txt.sig</p>
+<p>./DigitalSignature -v my_key my_file.txt my_file.txt.sig</p>
 <p>Это проверит подпись my_file.txt с использованием открытого ключа в my_key_pub.pem.</p>
 <p>Загрузить открытый ключ:</p>
-<p>./rsa_key_tool -l my_key pub</p>
+<p>./DigitalSignature -l my_key pub</p>
 <p>Это загрузит открытый ключ из my_key_pub.pem.</p>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Примечания</h1>

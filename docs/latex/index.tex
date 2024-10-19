@@ -9,32 +9,46 @@
 sudo apt-\/get update sudo apt-\/get install libssl-\/dev
 \item Сборка\+:
 
-mkdir build \&\& cd build cmake .. make
-\end{DoxyEnumerate}\hypertarget{index_autotoc_md3}{}\doxysection{Использование}\label{index_autotoc_md3}
-./rsa\+\_\+key\+\_\+tool \mbox{[}-\/h\mbox{]} \mbox{[}-\/g $<$key\+\_\+file$>$\mbox{]} \mbox{[}-\/s $<$key\+\_\+file$>$ $<$file\+\_\+to\+\_\+sign$>$\mbox{]} \mbox{[}-\/v $<$key\+\_\+file$>$ $<$file\+\_\+to\+\_\+sign$>$ $<$signature\+\_\+file$>$\mbox{]} \mbox{[}-\/l $<$key\+\_\+file$>$ $<$key\+\_\+type$>$\mbox{]}
+mkdir build \&\& cd build
 
-Опции\+: -\/h, --help Показать это сообщение о помощи и выйти -\/g $<$key\+\_\+file$>$, --generate $<$key\+\_\+file$>$ Сгенерировать новую пару ключей RSA и сохранить ее в $<$key\+\_\+file$>$\+\_\+pub.\+pem и $<$key\+\_\+file$>$\+\_\+priv.\+pem -\/s $<$key\+\_\+file$>$ $<$file\+\_\+to\+\_\+sign$>$, --sign $<$key\+\_\+file$>$ $<$file\+\_\+to\+\_\+sign$>$ Подписать указанный файл с использованием закрытого ключа в $<$key\+\_\+file$>$\+\_\+priv.\+pem -\/v $<$key\+\_\+file$>$ $<$file\+\_\+to\+\_\+sign$>$ $<$signature\+\_\+file$>$, --verify $<$key\+\_\+file$>$ $<$file\+\_\+to\+\_\+sign$>$ $<$signature\+\_\+file$>$ Проверить подпись указанного файла с использованием открытого ключа в $<$key\+\_\+file$>$\+\_\+pub.\+pem -\/l $<$key\+\_\+file$>$ $<$key\+\_\+type$>$, --load $<$key\+\_\+file$>$ $<$key\+\_\+type$>$ Загрузить ключ из $<$key\+\_\+file$>$ с указанным типом (\textquotesingle{}pub\textquotesingle{} для открытого ключа, \textquotesingle{}priv\textquotesingle{} для закрытого ключа)\hypertarget{index_autotoc_md4}{}\doxysection{Примеры}\label{index_autotoc_md4}
+cmake ..
+
+make
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md3}{}\doxysection{Использование}\label{index_autotoc_md3}
+./\+Digital\+Signature \mbox{[}-\/h\mbox{]} \mbox{[}-\/g $<$key\+\_\+file$>$\mbox{]} \mbox{[}-\/s $<$key\+\_\+file$>$ $<$file\+\_\+to\+\_\+sign$>$\mbox{]} \mbox{[}-\/v $<$key\+\_\+file$>$ $<$file\+\_\+to\+\_\+sign$>$ $<$signature\+\_\+file$>$\mbox{]} \mbox{[}-\/l $<$key\+\_\+file$>$ $<$key\+\_\+type$>$\mbox{]}
+
+Опции\+:
+
+-\/h, --help Показать это сообщение о помощи и выйти
+
+-\/g $<$key\+\_\+file$>$, --generate $<$key\+\_\+file$>$ Сгенерировать новую пару ключей RSA и сохранить ее в $<$key\+\_\+file$>$\+\_\+pub.\+pem и $<$key\+\_\+file$>$\+\_\+priv.\+pem
+
+-\/s $<$key\+\_\+file$>$ $<$file\+\_\+to\+\_\+sign$>$, --sign $<$key\+\_\+file$>$ $<$file\+\_\+to\+\_\+sign$>$ Подписать указанный файл с использованием закрытого ключа в $<$key\+\_\+file$>$\+\_\+priv.\+pem
+
+-\/v $<$key\+\_\+file$>$ $<$file\+\_\+to\+\_\+sign$>$ $<$signature\+\_\+file$>$, --verify $<$key\+\_\+file$>$ $<$file\+\_\+to\+\_\+sign$>$ $<$signature\+\_\+file$>$ Проверить подпись указанного файла с использованием открытого ключа в $<$key\+\_\+file$>$\+\_\+pub.\+pem
+
+-\/l $<$key\+\_\+file$>$ $<$key\+\_\+type$>$, --load $<$key\+\_\+file$>$ $<$key\+\_\+type$>$ Загрузить ключ из $<$key\+\_\+file$>$ с указанным типом (\textquotesingle{}pub\textquotesingle{} для открытого ключа, \textquotesingle{}priv\textquotesingle{} для закрытого ключа)\hypertarget{index_autotoc_md4}{}\doxysection{Примеры}\label{index_autotoc_md4}
 Сгенерировать новую пару ключей\+:
 
-./rsa\+\_\+key\+\_\+tool -\/g my\+\_\+key
+./\+Digital\+Signature -\/g my\+\_\+key
 
 Это создаст два файла\+: my\+\_\+key\+\_\+pub.\+pem и my\+\_\+key\+\_\+priv.\+pem.
 
 Подписать файл\+:
 
-./rsa\+\_\+key\+\_\+tool -\/s my\+\_\+key my\+\_\+file.\+txt
+./\+Digital\+Signature -\/s my\+\_\+key my\+\_\+file.\+txt
 
 Это подпишет my\+\_\+file.\+txt с использованием закрытого ключа в my\+\_\+key\+\_\+priv.\+pem.
 
 Проверить подпись\+:
 
-./rsa\+\_\+key\+\_\+tool -\/v my\+\_\+key my\+\_\+file.\+txt my\+\_\+file.\+txt.\+sig
+./\+Digital\+Signature -\/v my\+\_\+key my\+\_\+file.\+txt my\+\_\+file.\+txt.\+sig
 
 Это проверит подпись my\+\_\+file.\+txt с использованием открытого ключа в my\+\_\+key\+\_\+pub.\+pem.
 
 Загрузить открытый ключ\+:
 
-./rsa\+\_\+key\+\_\+tool -\/l my\+\_\+key pub
+./\+Digital\+Signature -\/l my\+\_\+key pub
 
 Это загрузит открытый ключ из my\+\_\+key\+\_\+pub.\+pem.\hypertarget{index_autotoc_md5}{}\doxysection{Примечания}\label{index_autotoc_md5}
 Программа использует библиотеку Open\+SSL для криптографических операций. Размер ключа по умолчанию установлен в 2048 бит. Закрытые ключи должны храниться в безопасности. Для использования в производственных условиях рекомендуется использовать более сильный размер ключа и внедрить безопасные практики управления ключами. 
