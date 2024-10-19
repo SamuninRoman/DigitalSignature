@@ -21,24 +21,27 @@
 2. Сборка:
    
    mkdir build && cd build
+   
    cmake ..
+   
    make 
    
 
 ## Использование
 
-./rsa_key_tool [-h] [-g <key_file>] [-s <key_file> <file_to_sign>] [-v <key_file> <file_to_sign> <signature_file>] [-l <key_file> <key_type>]
+./DigitalSignature [-h] [-g <key_file>] [-s <key_file> <file_to_sign>] [-v <key_file> <file_to_sign> <signature_file>] [-l <key_file> <key_type>]
 
 Опции:
+
   -h, --help            Показать это сообщение о помощи и выйти
-  -g <key_file>, --generate <key_file>
-                        Сгенерировать новую пару ключей RSA и сохранить ее в <key_file>_pub.pem и <key_file>_priv.pem
-  -s <key_file> <file_to_sign>, --sign <key_file> <file_to_sign>
-                        Подписать указанный файл с использованием закрытого ключа в <key_file>_priv.pem
-  -v <key_file> <file_to_sign> <signature_file>, --verify <key_file> <file_to_sign> <signature_file>
-                        Проверить подпись указанного файла с использованием открытого ключа в <key_file>_pub.pem
-  -l <key_file> <key_type>, --load <key_file> <key_type>
-                        Загрузить ключ из <key_file> с указанным типом ('pub' для открытого ключа, 'priv' для закрытого ключа)
+  
+  -g <key_file>, --generate <key_file> Сгенерировать новую пару ключей RSA и сохранить ее в <key_file>_pub.pem и <key_file>_priv.pem
+  
+  -s <key_file> <file_to_sign>, --sign <key_file> <file_to_sign>  Подписать указанный файл с использованием закрытого ключа в <key_file>_priv.pem
+  
+  -v <key_file> <file_to_sign> <signature_file>, --verify <key_file> <file_to_sign> <signature_file> Проверить подпись указанного файла с использованием открытого ключа в <key_file>_pub.pem
+  
+  -l <key_file> <key_type>, --load <key_file> <key_type> Загрузить ключ из <key_file> с указанным типом ('pub' для открытого ключа, 'priv' для закрытого ключа)
 
 
 ## Примеры
