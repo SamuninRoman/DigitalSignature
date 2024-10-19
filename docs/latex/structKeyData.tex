@@ -1,0 +1,29 @@
+\hypertarget{structKeyData}{}\doxysection{Структура Key\+Data}
+\label{structKeyData}\index{KeyData@{KeyData}}
+
+
+Структура для хранения ключей.  
+
+
+\doxysubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structKeyData_a45cc4a5a8372731395a73275728f837e}\label{structKeyData_a45cc4a5a8372731395a73275728f837e}} 
+EVP\+\_\+\+PKEY $\ast$ {\bfseries pkey}
+\item 
+\mbox{\Hypertarget{structKeyData_a9332debc23893039d0bbcf9ab31b54b3}\label{structKeyData_a9332debc23893039d0bbcf9ab31b54b3}} 
+unsigned char $\ast$ {\bfseries key\+\_\+data}
+\item 
+\mbox{\Hypertarget{structKeyData_aaa55f51837bb803d3b56242e4f28546e}\label{structKeyData_aaa55f51837bb803d3b56242e4f28546e}} 
+size\+\_\+t {\bfseries key\+\_\+data\+\_\+len}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Структура для хранения ключей. 
+
+Содержит указатель на объект EVP\+\_\+\+PKEY, представляющий ключ, а также данные ключа в двоичном формате и его размер. 
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{main_8c}{main.\+c}}\end{DoxyCompactItemize}

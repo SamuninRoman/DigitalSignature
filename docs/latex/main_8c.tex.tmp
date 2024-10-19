@@ -1,0 +1,166 @@
+\hypertarget{main_8c}{}\doxysection{Файл src/main.c}
+\label{main_8c}\index{src/main.c@{src/main.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$getopt.\+h$>$}\newline
+{\ttfamily \#include $<$openssl/evp.\+h$>$}\newline
+{\ttfamily \#include $<$openssl/pem.\+h$>$}\newline
+{\ttfamily \#include $<$openssl/err.\+h$>$}\newline
+{\ttfamily \#include $<$locale.\+h$>$}\newline
+Граф включаемых заголовочных файлов для main.\+c\+:
+% FIG 0
+\doxysubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structKeyData}{Key\+Data}}
+\begin{DoxyCompactList}\small\item\em Структура для хранения ключей. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a2d996237e082b78b41771b5aa1a6eae1}\label{main_8c_a2d996237e082b78b41771b5aa1a6eae1}} 
+\#define \mbox{\hyperlink{main_8c_a2d996237e082b78b41771b5aa1a6eae1}{KEY\+\_\+\+SIZE}}~2048
+\begin{DoxyCompactList}\small\item\em Определение размера ключа \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structKeyData}{Key\+Data}} $\ast$ \mbox{\hyperlink{main_8c_afbe453fbb74e7b870f5e594f6eaeee0d}{generate\+\_\+key}} ()
+\begin{DoxyCompactList}\small\item\em Функция генерации ключа. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a45b28b22b985a6a4ce1d3ec3238810aa}{save\+\_\+key}} (const char $\ast$filename, \mbox{\hyperlink{structKeyData}{Key\+Data}} $\ast$key)
+\begin{DoxyCompactList}\small\item\em Функция сохранения ключа в файл. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structKeyData}{Key\+Data}} $\ast$ \mbox{\hyperlink{main_8c_afa30963678773d00b198e1040f796ad1}{load\+\_\+key}} (const char $\ast$filename, const char $\ast$type)
+\begin{DoxyCompactList}\small\item\em Функция загрузки ключа из файла. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_ae94ad925caebbb6ace99b37a8e768914}{sign\+\_\+file}} (const char $\ast$file\+\_\+path, \mbox{\hyperlink{structKeyData}{Key\+Data}} $\ast$key)
+\begin{DoxyCompactList}\small\item\em Подписывает файл с использованием указанного ключа. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a34e0197315b44a4239c52f2e737b7b9a}{verify\+\_\+signature}} (const char $\ast$file\+\_\+path, const char $\ast$signature\+\_\+file, \mbox{\hyperlink{structKeyData}{Key\+Data}} $\ast$key)
+\begin{DoxyCompactList}\small\item\em Проверяет подпись файла с использованием указанного ключа. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Основная функция программы. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{main_8c_afbe453fbb74e7b870f5e594f6eaeee0d}\label{main_8c_afbe453fbb74e7b870f5e594f6eaeee0d}} 
+\index{main.c@{main.c}!generate\_key@{generate\_key}}
+\index{generate\_key@{generate\_key}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{generate\_key()}{generate\_key()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structKeyData}{Key\+Data}}$\ast$ generate\+\_\+key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция генерации ключа. 
+
+Генерирует пару ключей RSA с заданным размером ключа (KEY\+\_\+\+SIZE) и сохраняет их в структуру \mbox{\hyperlink{structKeyData}{Key\+Data}}.
+
+\begin{DoxyReturn}{Возвращает}
+Указатель на структуру \mbox{\hyperlink{structKeyData}{Key\+Data}}, содержащую сгенерированный ключ. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_afa30963678773d00b198e1040f796ad1}\label{main_8c_afa30963678773d00b198e1040f796ad1}} 
+\index{main.c@{main.c}!load\_key@{load\_key}}
+\index{load\_key@{load\_key}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{load\_key()}{load\_key()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structKeyData}{Key\+Data}}$\ast$ load\+\_\+key (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{const char $\ast$}]{type }\end{DoxyParamCaption})}
+
+
+
+Функция загрузки ключа из файла. 
+
+Загружает ключ из файла в формате PEM. Тип ключа (открытый или закрытый) определяется параметром {\ttfamily type}.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em filename} & Имя файла, из которого будет загружен ключ. \\
+\hline
+{\em type} & Тип ключа\+: \char`\"{}pub\char`\"{} для открытого ключа, \char`\"{}priv\char`\"{} для закрытого ключа.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Указатель на структуру \mbox{\hyperlink{structKeyData}{Key\+Data}}, содержащую загруженный ключ. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Основная функция программы. 
+
+Функция {\ttfamily main} обрабатывает аргументы командной строки и вызывает соответствующие функции для генерации ключей, подписи и проверки подписи файлов.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em argc} & Количество аргументов командной строки. \\
+\hline
+{\em argv} & Массив аргументов командной строки.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Возвращает 0 в случае успеха, 1 в случае ошибки. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a45b28b22b985a6a4ce1d3ec3238810aa}\label{main_8c_a45b28b22b985a6a4ce1d3ec3238810aa}} 
+\index{main.c@{main.c}!save\_key@{save\_key}}
+\index{save\_key@{save\_key}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{save\_key()}{save\_key()}}
+{\footnotesize\ttfamily void save\+\_\+key (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{\mbox{\hyperlink{structKeyData}{Key\+Data}} $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Функция сохранения ключа в файл. 
+
+Сохраняет открытый и закрытый ключи в отдельные файлы в формате PEM. Имена файлов формируются путем добавления \char`\"{}\+\_\+pub.\+pem\char`\"{} и \char`\"{}\+\_\+priv.\+pem\char`\"{} к переданному имени файла.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em filename} & Имя файла, к которому будут добавлены суффиксы \char`\"{}\+\_\+pub.\+pem\char`\"{} и \char`\"{}\+\_\+priv.\+pem\char`\"{} для формирования имен файлов. \\
+\hline
+{\em key} & Указатель на структуру \mbox{\hyperlink{structKeyData}{Key\+Data}}, содержащую ключ. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_ae94ad925caebbb6ace99b37a8e768914}\label{main_8c_ae94ad925caebbb6ace99b37a8e768914}} 
+\index{main.c@{main.c}!sign\_file@{sign\_file}}
+\index{sign\_file@{sign\_file}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{sign\_file()}{sign\_file()}}
+{\footnotesize\ttfamily void sign\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+\_\+path,  }\item[{\mbox{\hyperlink{structKeyData}{Key\+Data}} $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Подписывает файл с использованием указанного ключа. 
+
+Функция подписывает файл с использованием указанного ключа и сохраняет подпись в файл с расширением \char`\"{}.\+sig\char`\"{}.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em file\+\_\+path} & Путь к файлу для подписи. \\
+\hline
+{\em key} & Указатель на структуру \mbox{\hyperlink{structKeyData}{Key\+Data}}, содержащую ключ.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Возвращает 0 в случае успеха, 1 в случае ошибки. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a34e0197315b44a4239c52f2e737b7b9a}\label{main_8c_a34e0197315b44a4239c52f2e737b7b9a}} 
+\index{main.c@{main.c}!verify\_signature@{verify\_signature}}
+\index{verify\_signature@{verify\_signature}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{verify\_signature()}{verify\_signature()}}
+{\footnotesize\ttfamily void verify\+\_\+signature (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+\_\+path,  }\item[{const char $\ast$}]{signature\+\_\+file,  }\item[{\mbox{\hyperlink{structKeyData}{Key\+Data}} $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Проверяет подпись файла с использованием указанного ключа. 
+
+Функция проверяет подпись файла с использованием указанного ключа и выводит результат проверки на консоль.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em file\+\_\+path} & Путь к файлу для проверки. \\
+\hline
+{\em signature\+\_\+file} & Путь к файлу с подписью. \\
+\hline
+{\em key} & Указатель на структуру \mbox{\hyperlink{structKeyData}{Key\+Data}}, содержащую ключ.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Возвращает 0 в случае успеха, 1 в случае ошибки. 
+\end{DoxyReturn}

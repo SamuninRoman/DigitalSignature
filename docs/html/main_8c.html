@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Digital Signature: Файл src/main.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Digital Signature
+   &#160;<span id="projectnumber">1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#define-members">Макросы</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл main.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;getopt.h&gt;</code><br />
+<code>#include &lt;openssl/evp.h&gt;</code><br />
+<code>#include &lt;openssl/pem.h&gt;</code><br />
+<code>#include &lt;openssl/err.h&gt;</code><br />
+<code>#include &lt;locale.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Граф включаемых заголовочных файлов для main.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c__incl.png" border="0" usemap="#asrc_2main_8c" alt=""/></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structKeyData.html">KeyData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура для хранения ключей.  <a href="structKeyData.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:a2d996237e082b78b41771b5aa1a6eae1"><td class="memItemLeft" align="right" valign="top"><a id="a2d996237e082b78b41771b5aa1a6eae1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a2d996237e082b78b41771b5aa1a6eae1">KEY_SIZE</a>&#160;&#160;&#160;2048</td></tr>
+<tr class="memdesc:a2d996237e082b78b41771b5aa1a6eae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Определение размера ключа <br /></td></tr>
+<tr class="separator:a2d996237e082b78b41771b5aa1a6eae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:afbe453fbb74e7b870f5e594f6eaeee0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structKeyData.html">KeyData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#afbe453fbb74e7b870f5e594f6eaeee0d">generate_key</a> ()</td></tr>
+<tr class="memdesc:afbe453fbb74e7b870f5e594f6eaeee0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция генерации ключа.  <a href="main_8c.html#afbe453fbb74e7b870f5e594f6eaeee0d">Подробнее...</a><br /></td></tr>
+<tr class="separator:afbe453fbb74e7b870f5e594f6eaeee0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45b28b22b985a6a4ce1d3ec3238810aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a45b28b22b985a6a4ce1d3ec3238810aa">save_key</a> (const char *filename, <a class="el" href="structKeyData.html">KeyData</a> *key)</td></tr>
+<tr class="memdesc:a45b28b22b985a6a4ce1d3ec3238810aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция сохранения ключа в файл.  <a href="main_8c.html#a45b28b22b985a6a4ce1d3ec3238810aa">Подробнее...</a><br /></td></tr>
+<tr class="separator:a45b28b22b985a6a4ce1d3ec3238810aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa30963678773d00b198e1040f796ad1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structKeyData.html">KeyData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#afa30963678773d00b198e1040f796ad1">load_key</a> (const char *filename, const char *type)</td></tr>
+<tr class="memdesc:afa30963678773d00b198e1040f796ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция загрузки ключа из файла.  <a href="main_8c.html#afa30963678773d00b198e1040f796ad1">Подробнее...</a><br /></td></tr>
+<tr class="separator:afa30963678773d00b198e1040f796ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae94ad925caebbb6ace99b37a8e768914"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae94ad925caebbb6ace99b37a8e768914">sign_file</a> (const char *file_path, <a class="el" href="structKeyData.html">KeyData</a> *key)</td></tr>
+<tr class="memdesc:ae94ad925caebbb6ace99b37a8e768914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подписывает файл с использованием указанного ключа.  <a href="main_8c.html#ae94ad925caebbb6ace99b37a8e768914">Подробнее...</a><br /></td></tr>
+<tr class="separator:ae94ad925caebbb6ace99b37a8e768914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34e0197315b44a4239c52f2e737b7b9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a34e0197315b44a4239c52f2e737b7b9a">verify_signature</a> (const char *file_path, const char *signature_file, <a class="el" href="structKeyData.html">KeyData</a> *key)</td></tr>
+<tr class="memdesc:a34e0197315b44a4239c52f2e737b7b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет подпись файла с использованием указанного ключа.  <a href="main_8c.html#a34e0197315b44a4239c52f2e737b7b9a">Подробнее...</a><br /></td></tr>
+<tr class="separator:a34e0197315b44a4239c52f2e737b7b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
+<tr class="memdesc:a3c04138a5bfe5d72780bb7e82a18e627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основная функция программы.  <a href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">Подробнее...</a><br /></td></tr>
+<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Функции</h2>
+<a id="afbe453fbb74e7b870f5e594f6eaeee0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbe453fbb74e7b870f5e594f6eaeee0d">&#9670;&nbsp;</a></span>generate_key()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structKeyData.html">KeyData</a>* generate_key </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция генерации ключа. </p>
+<p>Генерирует пару ключей RSA с заданным размером ключа (KEY_SIZE) и сохраняет их в структуру <a class="el" href="structKeyData.html" title="Структура для хранения ключей.">KeyData</a>.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>Указатель на структуру <a class="el" href="structKeyData.html" title="Структура для хранения ключей.">KeyData</a>, содержащую сгенерированный ключ. </dd></dl>
+
+</div>
+</div>
+<a id="afa30963678773d00b198e1040f796ad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa30963678773d00b198e1040f796ad1">&#9670;&nbsp;</a></span>load_key()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structKeyData.html">KeyData</a>* load_key </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция загрузки ключа из файла. </p>
+<p>Загружает ключ из файла в формате PEM. Тип ключа (открытый или закрытый) определяется параметром <code>type</code>.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Имя файла, из которого будет загружен ключ. </td></tr>
+    <tr><td class="paramname">type</td><td>Тип ключа: "pub" для открытого ключа, "priv" для закрытого ключа.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Указатель на структуру <a class="el" href="structKeyData.html" title="Структура для хранения ключей.">KeyData</a>, содержащую загруженный ключ. </dd></dl>
+
+</div>
+</div>
+<a id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c04138a5bfe5d72780bb7e82a18e627">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Основная функция программы. </p>
+<p>Функция <code>main</code> обрабатывает аргументы командной строки и вызывает соответствующие функции для генерации ключей, подписи и проверки подписи файлов.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>Количество аргументов командной строки. </td></tr>
+    <tr><td class="paramname">argv</td><td>Массив аргументов командной строки.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает 0 в случае успеха, 1 в случае ошибки. </dd></dl>
+
+</div>
+</div>
+<a id="a45b28b22b985a6a4ce1d3ec3238810aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45b28b22b985a6a4ce1d3ec3238810aa">&#9670;&nbsp;</a></span>save_key()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void save_key </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structKeyData.html">KeyData</a> *&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция сохранения ключа в файл. </p>
+<p>Сохраняет открытый и закрытый ключи в отдельные файлы в формате PEM. Имена файлов формируются путем добавления "_pub.pem" и "_priv.pem" к переданному имени файла.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Имя файла, к которому будут добавлены суффиксы "_pub.pem" и "_priv.pem" для формирования имен файлов. </td></tr>
+    <tr><td class="paramname">key</td><td>Указатель на структуру <a class="el" href="structKeyData.html" title="Структура для хранения ключей.">KeyData</a>, содержащую ключ. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae94ad925caebbb6ace99b37a8e768914"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae94ad925caebbb6ace99b37a8e768914">&#9670;&nbsp;</a></span>sign_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sign_file </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>file_path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structKeyData.html">KeyData</a> *&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Подписывает файл с использованием указанного ключа. </p>
+<p>Функция подписывает файл с использованием указанного ключа и сохраняет подпись в файл с расширением ".sig".</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>Путь к файлу для подписи. </td></tr>
+    <tr><td class="paramname">key</td><td>Указатель на структуру <a class="el" href="structKeyData.html" title="Структура для хранения ключей.">KeyData</a>, содержащую ключ.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает 0 в случае успеха, 1 в случае ошибки. </dd></dl>
+
+</div>
+</div>
+<a id="a34e0197315b44a4239c52f2e737b7b9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34e0197315b44a4239c52f2e737b7b9a">&#9670;&nbsp;</a></span>verify_signature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void verify_signature </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>file_path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>signature_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structKeyData.html">KeyData</a> *&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверяет подпись файла с использованием указанного ключа. </p>
+<p>Функция проверяет подпись файла с использованием указанного ключа и выводит результат проверки на консоль.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>Путь к файлу для проверки. </td></tr>
+    <tr><td class="paramname">signature_file</td><td>Путь к файлу с подписью. </td></tr>
+    <tr><td class="paramname">key</td><td>Указатель на структуру <a class="el" href="structKeyData.html" title="Структура для хранения ключей.">KeyData</a>, содержащую ключ.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает 0 в случае успеха, 1 в случае ошибки. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

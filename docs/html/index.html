@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Digital Signature: Генератор ключей RSA и инструмент для подписи файлов</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Digital Signature
+   &#160;<span id="projectnumber">1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Генератор ключей RSA и инструмент для подписи файлов </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_docs_README"></a> Эта программа генерирует пары ключей RSA, сохраняет их в файлы, загружает ключи из файлов, подписывает файлы с использованием закрытого ключа и проверяет подписи с использованием открытого ключа.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Возможности</h1>
+<p>Генерация ключей: Генерирует пары ключей RSA с заданным размером ключа. Сохранение ключей: Сохраняет открытые и закрытые ключи в отдельные файлы в формате PEM. Загрузка ключей: Загружает открытые и закрытые ключи из файлов PEM. Подпись файлов: Подписывает файлы с использованием закрытого ключа, создавая цифровую подпись. Проверка подписи: Проверяет подлинность подписанных файлов с использованием открытого ключа.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Установка</h1>
+<ol type="1">
+<li><p class="startli">Установите OpenSSL:</p>
+<p class="startli">sudo apt-get update sudo apt-get install libssl-dev</p>
+</li>
+<li><p class="startli">Сборка:</p>
+<p class="startli">mkdir build &amp;&amp; cd build cmake .. make</p>
+</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Использование</h1>
+<p>./rsa_key_tool [-h] [-g &lt;key_file&gt;] [-s &lt;key_file&gt; &lt;file_to_sign&gt;] [-v &lt;key_file&gt; &lt;file_to_sign&gt; &lt;signature_file&gt;] [-l &lt;key_file&gt; &lt;key_type&gt;]</p>
+<p>Опции: -h, &ndash;help Показать это сообщение о помощи и выйти -g &lt;key_file&gt;, &ndash;generate &lt;key_file&gt; Сгенерировать новую пару ключей RSA и сохранить ее в &lt;key_file&gt;_pub.pem и &lt;key_file&gt;_priv.pem -s &lt;key_file&gt; &lt;file_to_sign&gt;, &ndash;sign &lt;key_file&gt; &lt;file_to_sign&gt; Подписать указанный файл с использованием закрытого ключа в &lt;key_file&gt;_priv.pem -v &lt;key_file&gt; &lt;file_to_sign&gt; &lt;signature_file&gt;, &ndash;verify &lt;key_file&gt; &lt;file_to_sign&gt; &lt;signature_file&gt; Проверить подпись указанного файла с использованием открытого ключа в &lt;key_file&gt;_pub.pem -l &lt;key_file&gt; &lt;key_type&gt;, &ndash;load &lt;key_file&gt; &lt;key_type&gt; Загрузить ключ из &lt;key_file&gt; с указанным типом ('pub' для открытого ключа, 'priv' для закрытого ключа)</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Примеры</h1>
+<p>Сгенерировать новую пару ключей:</p>
+<p>./rsa_key_tool -g my_key</p>
+<p>Это создаст два файла: my_key_pub.pem и my_key_priv.pem.</p>
+<p>Подписать файл:</p>
+<p>./rsa_key_tool -s my_key my_file.txt</p>
+<p>Это подпишет my_file.txt с использованием закрытого ключа в my_key_priv.pem.</p>
+<p>Проверить подпись:</p>
+<p>./rsa_key_tool -v my_key my_file.txt my_file.txt.sig</p>
+<p>Это проверит подпись my_file.txt с использованием открытого ключа в my_key_pub.pem.</p>
+<p>Загрузить открытый ключ:</p>
+<p>./rsa_key_tool -l my_key pub</p>
+<p>Это загрузит открытый ключ из my_key_pub.pem.</p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Примечания</h1>
+<p>Программа использует библиотеку OpenSSL для криптографических операций. Размер ключа по умолчанию установлен в 2048 бит. Закрытые ключи должны храниться в безопасности. Для использования в производственных условиях рекомендуется использовать более сильный размер ключа и внедрить безопасные практики управления ключами. </p>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
