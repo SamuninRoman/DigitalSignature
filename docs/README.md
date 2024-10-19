@@ -48,25 +48,25 @@
 
  Сгенерировать новую пару ключей:
    
-   ./rsa_key_tool -g my_key
+   ./DigitalSignature -g my_key
    
    Это создаст два файла: my_key_pub.pem и my_key_priv.pem.
 
  Подписать файл:
    
-   ./rsa_key_tool -s my_key my_file.txt
+   ./DigitalSignature -s my_key my_file.txt
    
    Это подпишет my_file.txt с использованием закрытого ключа в my_key_priv.pem.
 
  Проверить подпись:
    
-   ./rsa_key_tool -v my_key my_file.txt my_file.txt.sig
+   ./DigitalSignature -v my_key my_file.txt my_file.txt.sig
    
    Это проверит подпись my_file.txt с использованием открытого ключа в my_key_pub.pem.
 
  Загрузить открытый ключ:
    
-   ./rsa_key_tool -l my_key pub
+   ./DigitalSignature -l my_key pub
    
    Это загрузит открытый ключ из my_key_pub.pem.
 
